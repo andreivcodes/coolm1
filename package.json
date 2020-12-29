@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "build": "electron-builder build --mac --publish never",
-    "deploy": "electron-builder build --mac --publish always"
+    "build": "electron-builder",
+    "deploy": "electron-builder --publish=always"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,8 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "andreivdev"
+        "owner": "andreivdev",
+        "repo": "coolm1"
       }
     ],
     "mac": {
