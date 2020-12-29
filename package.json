@@ -1,0 +1,81 @@
+{
+  "name": "coolm1",
+  "version": "1.0.0",
+  "description": "Temp monitoring for Apple M1",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "electron-builder build --mac --publish never",
+    "deploy": "electron-builder build --mac --publish always"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andreivdev/coolm1.git"
+  },
+  "keywords": [
+    "apple",
+    "silicon",
+    "m1",
+    "temperature"
+  ],
+  "author": "andreivdev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreivdev/coolm1/issues"
+  },
+  "homepage": "https://github.com/andreivdev/coolm1#readme",
+  "build": {
+    "appId": "com.andreivdev.coolm1",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "andreivdev"
+      }
+    ],
+    "mac": {
+      "publish": [
+        "github"
+      ],
+      "target": {
+        "target": "dir",
+        "arch": "arm64"
+      }
+    },
+    "extraFiles": [
+      {
+        "from": "./contents/resources/bin/m1templib",
+        "to": "resources/bin/m1templib",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "./contents/resources/themes",
+        "to": "resources/themes",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
+  },
+  "devDependencies": {
+    "electron": "^11.1.1",
+    "electron-builder": "^22.9.1"
+  },
+  "dependencies": {
+    "auto-launch": "^5.0.5",
+    "bootstrap": "^4.5.3",
+    "chart.js": "^2.9.4",
+    "chartjs-adapter-moment": "^0.1.2",
+    "chartjs-plugin-datalabels": "^0.7.0",
+    "chartjs-plugin-streaming": "^1.8.0",
+    "electron-root-path": "^1.0.16",
+    "electron-store": "^6.0.1",
+    "electron-updater": "^4.3.5",
+    "jquery": "^3.5.1",
+    "menubar": "^9.0.1",
+    "moment": "^2.29.1",
+    "popper.js": "^1.16.1"
+  }
+}

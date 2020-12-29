@@ -1,0 +1,76 @@
+eACC MTR Temp Sensor0 - efficiency core
+eACC MTR Temp Sensor3 - efficiency core
+pACC MTR Temp Sensor8 - performance core
+pACC MTR Temp Sensor7 - performance core
+pACC MTR Temp Sensor5 - performance core
+pACC MTR Temp Sensor4 - performance core
+pACC MTR Temp Sensor3 - performance core
+pACC MTR Temp Sensor2 - performance core
+pACC MTR Temp Sensor9 - performance core
+GPU MTR Temp Sensor4 - GPU
+GPU MTR Temp Sensor1 - GPU
+ANE MTR Temp Sensor1 - ANE
+
+
+
+
+Sensor names:
+
+0 : NAND CH0 temp
+ 1 : gas gauge battery
+ 2 : SOC MTR Temp Sensor0
+ 3 : eACC MTR Temp Sensor3
+ 4 : pACC MTR Temp Sensor8
+ 5 : PMU2 TR6b
+ 6 : gas gauge battery
+ 7 : PMU tdie8
+ 8 : PMU2 TR8b
+ 9 : PMU2 TR4d
+ 10 : PMGR SOC Die Temp Sensor2
+ 11 : PMU tdie7
+ 12 : PMU2 TR7b
+ 13 : eACC MTR Temp Sensor0
+ 14 : pACC MTR Temp Sensor7
+ 15 : PMU2 TR1l
+ 16 : GPU MTR Temp Sensor4
+ 17 : PMU2 TR3d
+ 18 : PMGR SOC Die Temp Sensor1
+ 19 : PMU tdie6
+ 20 : PMU2 TR0Z
+ 21 : ISP MTR Temp Sensor5
+ 22 : PMU tdev5
+ 23 : pACC MTR Temp Sensor5
+ 24 : PMU2 TR3b
+ 25 : gas gauge battery
+ 26 : PMU tdev1
+ 27 : PMU2 TR2d
+ 28 : PMU tcal
+ 29 : PMU2 TR5b
+ 30 : PMU tdie5
+ 31 : PMU tdev8
+ 32 : gas gauge battery
+ 33 : ANE MTR Temp Sensor1
+ 34 : PMGR SOC Die Temp Sensor0
+ 35 : PMU tdev4
+ 36 : pACC MTR Temp Sensor4
+ 37 : PMU tdie4
+ 38 : PMU tdev7
+ 39 : gas gauge battery
+ 40 : PMU tdev2
+ 41 : PMU tdev6
+ 42 : SOC MTR Temp Sensor2
+ 43 : pACC MTR Temp Sensor3
+ 44 : PMU2 TR5d
+ 45 : GPU MTR Temp Sensor1
+ 46 : PMU tdie2
+ 47 : PMU tdie1
+ 48 : PMU2 TR2l
+ 49 : SOC MTR Temp Sensor1
+ 50 : PMU tdev3
+ 51 : pACC MTR Temp Sensor2
+ 52 : PMU TP3w
+ 53 : gas gauge battery
+ 54 : pACC MTR Temp Sensor9
+ 55 : PMU2 TR1d
+ 56 : PMU2 TR4b
+ 

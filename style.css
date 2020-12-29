@@ -1,0 +1,47 @@
+.dropdown-item {
+  font-size: smaller;
+  padding: 1px;
+  margin: 1px;
+  padding-left: 25px;
+}
+
+.dropdown-header {
+  font-size: smaller;
+  padding: 1px;
+  margin: 1px;
+  padding-left: 10px;
+}
+
+#showallbutton {
+  font-size: smaller;
+}
+
+.buttons {
+  padding-left: 8px;
+  padding-top: 8px;
+  float: left;
+  line-height: 0px;
+}
+
+.buttons:hover a {
+  visibility: visible;
+}
+
+.close {
+  background: #ff5c5c;
+  font-size: 9pt;
+  width: 13px;
+  height: 13px;
+  border: 1px solid #e33e41;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.close:active {
+  background: #c14645;
+  border: 1px solid #b03537;
+}
+
+.close:active .closebutton {
+  color: #4e0002;
+}
