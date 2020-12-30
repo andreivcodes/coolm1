@@ -1,7 +1,6 @@
 const { menubar } = require("menubar");
 
 var { ipcMain } = require("electron");
-const { autoUpdater } = require("electron-updater");
 const util = require("util");
 const { exec } = require("child_process");
 const execProm = util.promisify(exec);
@@ -12,7 +11,8 @@ let { rootPath } = require("electron-root-path");
 const root = rootPath;
 
 let store = new Store();
-//require("update-electron-app")();
+
+require("update-electron-app")();
 
 var coolm1Launcher = new AutoLaunch({
   name: "coolm1",
@@ -59,13 +59,7 @@ mb.on("after-hide", () => {
   mb.app.dock.hide();
 });
 
-autoUpdater.on("update-downloaded", () => {
-  autoUpdater.quitAndInstall();
-});
-
 mb.on("ready", () => {
-  autoUpdater.checkForUpdatesAndNotify();
-
   const { execPath } = require("./app/binaries");
 
   mb.app.dock.hide();
