@@ -1,6 +1,6 @@
 {
   "name": "coolm1",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Temp monitoring for Apple M1",
   "main": "main.js",
   "scripts": {
@@ -53,7 +53,9 @@
   },
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "icon.icns"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
