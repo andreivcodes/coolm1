@@ -1,6 +1,6 @@
 {
   "name": "coolm1",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Temp monitoring for Apple M1",
   "main": "main.js",
   "scripts": {
@@ -54,7 +54,14 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "icon.icns"
+        "icon": "icon.icns",
+        "osxSign": {
+          "identity": "Apple Development: andrei@andreiv.com (WZ722XGNB6)",
+          "hardened-runtime": true,
+          "entitlements": "entitlements.plist",
+          "entitlements-inherit": "entitlements.plist",
+          "signature-flags": "library"
+        }
       },
       "makers": [
         {
