@@ -1,23 +1,33 @@
-<h1 align="center">➖ coolm1 ➖</h1>
+<h1 align="center">- coolm1 -</h1>
 
 <h4 align="center">A simple temp monitoring utility for Apple M1</h4>
 
+![screenshot2](docs/screenshot2.png)
 ![screenshot](docs/screenshot.png)
 
 Using a modified version of [fermion-star's apple_sensors](https://github.com/fermion-star/apple_sensors).
 
 ## Info
 
-- Made with Electron and ChartJS.
+- Made with [Electron](https://github.com/electron/electro) and [ChartJS](https://github.com/chartjs/Chart.js).
 
-- Can autoupdate to latest release on this github page.
+## Functionality
 
-- At startup it requests permission for user login items which is required for autostart.
+- Average M1 SOC temperature
+- Detailed temperature graphs for CPU, GPU and ANE
 
-- Average M1 CPU temperature - shows an average of all eACC and pACC sensors.
+## Building and running
 
-- M1 CPU temperature - shows all eACC and pACC sensors separately.
+`npm install`
 
-- M1 GPU temperature - shows GPU MTR sensors separately.
+`npm start`
 
-- M1 ANE temperature - shows ANE MTR sensor.
+## Packaging
+
+`npm make`
+
+Results of packaging can be found in `/out`
+
+## Contributing
+
+Feel free to make a PR 👍
