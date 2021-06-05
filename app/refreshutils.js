@@ -6,6 +6,7 @@ exports.onMainChartRefresh = (chart) => {
     });
   });
 
+  ipcRenderer.send("settemp", computeutils.calculateAvg());
   let max = 0;
   let min = 100;
 

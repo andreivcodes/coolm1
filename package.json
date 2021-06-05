@@ -1,6 +1,6 @@
 {
   "name": "coolm1",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "description": "Temp monitoring for Apple M1",
   "author": "Andrei Voinea <andrei@andreiv.com>",
@@ -58,7 +58,7 @@
         },
         "osxNotarize": {
           "appleId": "andrei@andreiv.com",
-          "appleIdPassword": "**** add electron-notarize app password here *** "
+          "appleIdPassword": "app specific pass"
         }
       },
       "makers": [

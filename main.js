@@ -42,6 +42,14 @@ ipcMain.on("autostart", (event, arg) => {
   }
 });
 
+let showtemp = false;
+ipcMain.on("showtemp", (event, arg) => {
+  if (arg) {
+    showtemp = true;
+  } else {
+    showtemp = false;
+  }
+});
 ipcMain.handle("getStoreValue", (event, key) => {
   return store.get(key);
 });
@@ -59,10 +67,22 @@ mb.on("after-hide", () => {
   mb.app.dock.hide();
 });
 
+let firstShow = true;
 mb.on("ready", () => {
   const { execPath } = require("./app/binaries");
 
-  mb.app.dock.hide();
+  //show for a bit so we load sensors
+  mb.showWindow();
+
+  showtemp = store.get("showtemp");
+  ipcMain.on("settemp", (event, args) => {
+    if (firstShow) {
+      mb.hideWindow();
+      firstShow = false;
+    }
+    if (showtemp) mb.tray.setTitle(args);
+    else mb.tray.setTitle("");
+  });
 
   ipcMain.on("index", (event, arg) => {
     switch (arg) {

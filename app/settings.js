@@ -8,6 +8,7 @@ exports.loadSettings = async function () {
   let hasTheme = await ipcRenderer.invoke("hasStoreValue", "theme");
   let hasLabels = await ipcRenderer.invoke("hasStoreValue", "show_labels");
   let hasAutostart = await ipcRenderer.invoke("hasStoreValue", "autostart");
+  let hasShowTemp = await ipcRenderer.invoke("hasStoreValue", "showtemp");
 
   if (hasRefresh)
     setRefreshRate(await ipcRenderer.invoke("getStoreValue", "refresh_rate"));
@@ -36,6 +37,12 @@ exports.loadSettings = async function () {
     setAutostart(await ipcRenderer.invoke("getStoreValue", "autostart"));
   else {
     setAutostart(true);
+  }
+
+  if (hasShowTemp)
+    setShowTemp(await ipcRenderer.invoke("getStoreValue", "showtemp"));
+  else {
+    setShowTemp(true);
   }
 };
 
@@ -99,6 +106,13 @@ exports.setupButtons = () => {
     (async function () {
       let state = await ipcRenderer.invoke("getStoreValue", "autostart");
       setAutostart(!state);
+    })();
+  });
+
+  document.getElementById("showtemp").addEventListener("click", (event) => {
+    (async function () {
+      let state = await ipcRenderer.invoke("getStoreValue", "showtemp");
+      setShowTemp(!state);
     })();
   });
 };
@@ -207,4 +221,15 @@ function setAutostart(_autostart) {
 
   store.set("autostart", _autostart);
   ipcRenderer.send("autostart", _autostart);
+}
+
+function setShowTemp(_showtemp) {
+  if (_showtemp) {
+    document.getElementById("showtemp").text = "✓ Show temp in tray";
+  } else {
+    document.getElementById("showtemp").text = "Show temp in tray";
+  }
+
+  store.set("showtemp", _showtemp);
+  ipcRenderer.send("showtemp", _showtemp);
 }
