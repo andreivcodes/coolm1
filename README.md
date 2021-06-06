@@ -2,9 +2,11 @@
 
 <h4 align="center">A simple temp monitoring utility for Apple M1</h4>
 
-![light_theme](docs/light_theme.png)
-![screenshot2](docs/screenshot2.png)
-![screenshot](docs/screenshot.png)
+<p align="center">
+  <img src="docs/light_theme.png" width="800"/>
+  <img src="docs/screenshot2.png" width="800"/>
+  <img src="docs/screenshot.png" width="600"/>
+</p>
 
 Using a modified version of [fermion-star's apple_sensors](https://github.com/fermion-star/apple_sensors).
 
@@ -15,17 +17,23 @@ Using a modified version of [fermion-star's apple_sensors](https://github.com/fe
 ### Available options
 
 - Sensor refresh rate
-  <img src="docs/options_1.png" alt="drawing" style="width:200px;"/>
+<p align="center">
+  <img src="docs/options_1.png" width="600"/>
+</p>
 
 - Graph interval
-  <img src="docs/options_2.png" alt="drawing" style="width:200px;"/>
+<p align="center">
+  <img src="docs/options_2.png" width="600"/>
+</p>
 
 - Light theme
 - Dark theme
 - Labels on graph
 - Autostart
 - Show temperature text in tray
-  <img src="docs/options_3.png" alt="drawing" style="width:200px;"/>
+<p align="center">
+  <img src="docs/options_3.png" width="600"/>
+</p>
 
 ## Functionality
 
