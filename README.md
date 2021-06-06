@@ -15,17 +15,17 @@ Using a modified version of [fermion-star's apple_sensors](https://github.com/fe
 ### Available options
 
 - Sensor refresh rate
-  ![options_1](docs/options_1.png)
+  <img src="docs/options_1.png" alt="drawing" style="width:200px;"/>
 
 - Graph interval
-  ![options_2](docs/options_2.png)
+  <img src="docs/options_2.png" alt="drawing" style="width:200px;"/>
 
 - Light theme
 - Dark theme
 - Labels on graph
 - Autostart
 - Show temperature text in tray
-  ![options_3](docs/options_3.png)
+  <img src="docs/options_3.png" alt="drawing" style="width:200px;"/>
 
 ## Functionality
 
