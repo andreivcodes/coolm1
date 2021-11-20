@@ -107,3 +107,6 @@ dist
 
 # dependencies file
 yarn.lock
+
+# macos finder files
+.DS_Store
