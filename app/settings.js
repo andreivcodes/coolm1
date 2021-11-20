@@ -1,5 +1,3 @@
-const { timers } = require("jquery");
-const { onMainChartRefresh } = require("./refreshutils");
 const { setMainChartLabels } = require("./charts");
 
 exports.loadSettings = async function () {
@@ -194,8 +192,6 @@ function setTheme(theme) {
         '<link href="' + themepath + '/darkly.css" rel="stylesheet" />';
       break;
   }
-
-  //ipcRenderer.send("theme", theme);
 
   document.head.append(themesheet);
 }

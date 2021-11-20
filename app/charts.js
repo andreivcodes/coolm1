@@ -5,7 +5,7 @@ let chartColors = [
   "rgb(232, 93, 4)",
   "rgb(220, 47, 2)",
   "rgb(208, 0, 0)",
-  "#00A8CC",
+  "rgb(157, 2, 8)",
   "rgb(106, 4, 15)",
   "rgb(55, 6, 23)",
 ];
@@ -60,8 +60,8 @@ exports.createCharts = () => {
       datasets: [
         {
           label: "Dataset 1 (linear interpolation)",
-          backgroundColor: chartColors[6],
-          borderColor: chartColors[6],
+          backgroundColor: "#00A8CC",
+          borderColor: "#00A8CC",
           fill: false,
           data: [],
         },

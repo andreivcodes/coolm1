@@ -109,7 +109,6 @@ header {
   padding-right: 1em;
   margin-bottom: 1em;
   height: 8rem;
-  /* margin-top: -1em; */
   margin-top: -.5em;
   padding-top: .3em;
   border-top: 1px solid var(--border-color);
@@ -120,7 +119,6 @@ header {
   margin-left: auto;
   margin-right: 0;
 }
-
 
 .btn-container {
   text-align: center;

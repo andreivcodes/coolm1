@@ -6,9 +6,6 @@ const { exec } = require("child_process");
 const execProm = util.promisify(exec);
 const Store = require("electron-store");
 const AutoLaunch = require("auto-launch");
-let path = require("path");
-let { rootPath } = require("electron-root-path");
-const root = rootPath;
 
 let store = new Store();
 
