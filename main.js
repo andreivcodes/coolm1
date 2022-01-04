@@ -6,9 +6,6 @@ const { exec } = require("child_process");
 const execProm = util.promisify(exec);
 const Store = require("electron-store");
 const AutoLaunch = require("auto-launch");
-let path = require("path");
-let { rootPath } = require("electron-root-path");
-const root = rootPath;
 
 let store = new Store();
 
@@ -16,7 +13,7 @@ require("update-electron-app")();
 
 var coolm1Launcher = new AutoLaunch({
   name: "coolm1",
-  path: "/Applications/coolm1.app",
+  path: "/Applications/coolm11.app",
   isHidden: true,
 });
 
@@ -27,7 +24,7 @@ const mb = menubar({
       enableRemoteModule: true,
     },
     width: 600,
-    height: 300,
+    height: 350,
     resizable: false,
     preloadWindow: true,
     show: false,
@@ -68,6 +65,7 @@ mb.on("after-hide", () => {
 });
 
 let firstShow = true;
+let hidden = true;
 mb.on("ready", () => {
   const { execPath } = require("./app/binaries");
 
@@ -97,8 +95,9 @@ mb.on("ready", () => {
         });
         break;
       case "showalltoggle":
-        if (mb.window.getSize()[1] == 800) mb.window.setSize(600, 300);
-        else mb.window.setSize(600, 800);
+        if (hidden) mb.window.setSize(600, 780);
+        else mb.window.setSize(600, 350);
+        hidden = !hidden;
         break;
       case "close":
         mb.app.exit(0);

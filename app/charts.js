@@ -60,8 +60,8 @@ exports.createCharts = () => {
       datasets: [
         {
           label: "Dataset 1 (linear interpolation)",
-          backgroundColor: chartColors[6],
-          borderColor: chartColors[6],
+          backgroundColor: "#00A8CC",
+          borderColor: "#00A8CC",
           fill: false,
           data: [],
         },

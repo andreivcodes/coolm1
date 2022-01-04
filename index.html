@@ -2,164 +2,76 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'"
-    />
-
-    <script
-      src="https://kit.fontawesome.com/1467784813.js"
-      crossorigin="anonymous"
-    ></script>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'"/>
+    <script src="https://kit.fontawesome.com/1467784813.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
-    <title>coolm1</title>
   </head>
   <body>
-    <div class="buttons">
-      <div class="close" id="close"></div>
-    </div>
-
-    <div style="display: flex">
-      <div
-        class="chart-container mr-4 mb-1"
-        style="position: relative; height: 250px; width: 85vw"
-      >
-        <canvas id="mainChart"></canvas>
+    <header>
+      <div class="buttons">
+        <div class="close" id="close"></div>
       </div>
 
-      <div style="display: flex; flex-direction: column; align-items: flex-end">
-        <div class="dropleft">
-          <button
-            class="btn btn-primary dropdown-toggle mt-1"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <i class="fas fa-sync"></i>
-            <span class="caret"></span>
+      <div class="settings-container">
+        <div class="drop-list">
+          <button class="settings-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="icons/refresh-rate.png" alt="refresh-rate">
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <p class="dropdown-header font-weight-light">Refresh rate</p>
-            <a class="dropdown-item font-weight-light" id="refresh_1s" href="#"
-              >1 second</a
-            >
-            <a class="dropdown-item font-weight-light" id="refresh_5s" href="#"
-              >5 seconds</a
-            >
-            <a class="dropdown-item font-weight-light" id="refresh_15s" href="#"
-              >15 seconds</a
-            >
-            <a class="dropdown-item font-weight-light" id="refresh_30s" href="#"
-              >30 seconds</a
-            >
+            <p class="dropdown-header">Refresh rate</p>
+            <a class="dropdown-item" id="refresh_1s" href="#">1 second</a>
+            <a class="dropdown-item" id="refresh_5s" href="#">5 seconds</a>
+            <a class="dropdown-item" id="refresh_15s" href="#">15 seconds</a>
+            <a class="dropdown-item" id="refresh_30s" href="#">30 seconds</a>
           </div>
         </div>
 
-        <div class="dropleft">
-          <button
-            class="btn btn-primary dropdown-toggle mt-1"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <i class="fas fa-history"></i>
-            <span class="caret"></span>
+        <div class="drop-list">
+          <button class="settings-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="icons/refresh-interval.png" alt="refresh-interval">
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <p class="dropdown-header font-weight-light">Interval</p>
-            <a
-              class="dropdown-item font-weight-light"
-              id="interval_30s"
-              href="#"
-              >30 seconds</a
-            >
-            <a class="dropdown-item font-weight-light" id="interval_1m" href="#"
-              >1 minute</a
-            >
-            <a class="dropdown-item font-weight-light" id="interval_5m" href="#"
-              >5 minutes</a
-            >
-            <a
-              class="dropdown-item font-weight-light"
-              id="interval_10m"
-              href="#"
-              >10 minutes</a
-            >
+            <p class="dropdown-header">Interval</p>
+            <a class="dropdown-item" id="interval_30s"href="#">30 seconds</a>
+            <a class="dropdown-item" id="interval_1m" href="#">1 minute</a>
+            <a class="dropdown-item" id="interval_5m" href="#">5 minutes</a>
+            <a class="dropdown-item" id="interval_10m" href="#">10 minutes</a>
           </div>
         </div>
 
-        <div class="dropleft">
-          <button
-            class="btn btn-primary dropdown-toggle mt-1"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <i class="fas fa-cog"></i>
-            <span class="caret"></span>
+        <div class="drop-list">
+          <button class="settings-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="icons/settings.png" alt="settings">
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <!-- <p class="dropdown-header font-weight-light">Settings</p> -->
-            <a class="dropdown-item font-weight-light" href="#" id="light_theme"
-              >Light theme</a
-            >
-            <a class="dropdown-item font-weight-light" href="#" id="dark_theme"
-              >Dark theme</a
-            >
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item font-weight-light" href="#" id="show_labels"
-              >Show labels</a
-            >
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item font-weight-light" href="#" id="autostart"
-              >Autostart</a
-            >
-            <a class="dropdown-item font-weight-light" href="#" id="showtemp"
-              >Show temp in tray</a
-            >
+            <p class="dropdown-header">Settings</p>
+            <a class="dropdown-item" href="#" id="light_theme">Light theme</a>
+            <a class="dropdown-item" href="#" id="dark_theme">Dark theme</a>
+            <a class="dropdown-item" href="#" id="show_labels">Show labels</a>
+            <a class="dropdown-item" href="#" id="autostart">Autostart</a>
+            <a class="dropdown-item" href="#" id="showtemp">Show temp in tray</a>
           </div>
         </div>
       </div>
+      
+      <div id="buymeacoffee">
+        <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=andreivdev&button_colour=5F7FFF&font_colour=ffffff&font_family=Arial&outline_colour=000000&coffee_colour=FFDD00" width="135" />
+      </div>
+    </header>
+
+    <div class="chart-container">
+      <canvas id="mainChart"></canvas>
     </div>
 
-    <button type="button" class="btn btn-primary m-2" id="showallbutton">
-      Show all sensors
-    </button>
-
-    <div class="m-2" id="buymeacoffee" style="float: right; font-size: smaller">
-      <img
-        src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=andreivdev&button_colour=5F7FFF&font_colour=ffffff&font_family=Arial&outline_colour=000000&coffee_colour=FFDD00"
-        width="135"
-      />
+    <div class="btn-container">
+      <button class="btn" id="showallbutton">Show all sensors</button>
     </div>
 
-    <br />
-    <div
-      class="chart-containe m-1"
-      style="position: relative; height: 160px; width: 85vw"
-    >
-      <canvas id="cpuChart"></canvas>
-    </div>
+    <br>
 
-    <div
-      class="chart-containe m-1"
-      style="position: relative; height: 160px; width: 85vw"
-    >
-      <canvas id="gpuChart"></canvas>
-    </div>
-
-    <div
-      class="chart-containe m-1"
-      style="position: relative; height: 160px; width: 85vw"
-    >
-      <canvas id="aneChart"></canvas>
-    </div>
+    <div class="smaller-chart-container"><canvas id="cpuChart"></canvas></div>
+    <div class="smaller-chart-container"><canvas id="gpuChart"></canvas></div>
+    <div class="smaller-chart-container"><canvas id="aneChart"></canvas></div>
 
     <script src="index.js"></script>
   </body>
