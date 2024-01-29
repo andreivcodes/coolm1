@@ -11,6 +11,7 @@
 		514201522437B4B40078DB4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 514201512437B4B40078DB4F /* Assets.xcassets */; };
 		514201552437B4B40078DB4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 514201532437B4B40078DB4F /* Main.storyboard */; };
 		514201582437B4B40078DB4F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 514201572437B4B40078DB4F /* main.m */; };
+		75D281642B680CD60099C857 /* TempSensors.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D281632B680CD60099C857 /* TempSensors.m */; };
 		D6CB4115AA32E48F3E690E18 /* libPods-coolm1-macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 570008D7FCF696180B329539 /* libPods-coolm1-macOS.a */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,8 @@
 		514201572437B4B40078DB4F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		514201592437B4B40078DB4F /* coolm1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = coolm1.entitlements; sourceTree = "<group>"; };
 		570008D7FCF696180B329539 /* libPods-coolm1-macOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-coolm1-macOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		75D281632B680CD60099C857 /* TempSensors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempSensors.m; sourceTree = "<group>"; };
+		75FBCD312B6819D0009D3ACF /* TempSensors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempSensors.h; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -60,6 +63,8 @@
 				514201562437B4B40078DB4F /* Info.plist */,
 				514201572437B4B40078DB4F /* main.m */,
 				514201592437B4B40078DB4F /* coolm1.entitlements */,
+				75D281632B680CD60099C857 /* TempSensors.m */,
+				75FBCD312B6819D0009D3ACF /* TempSensors.h */,
 			);
 			path = "coolm1-macOS";
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 				TargetAttributes = {
 					514201482437B4B30078DB4F = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1520;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -254,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75D281642B680CD60099C857 /* TempSensors.m in Sources */,
 				514201582437B4B40078DB4F /* main.m in Sources */,
 				5142014D2437B4B30078DB4F /* AppDelegate.mm in Sources */,
 			);
@@ -278,6 +285,7 @@
 			baseConfigurationReference = 1E476350D5EFD9ECAB636BFF /* Pods-coolm1-macOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				INFOPLIST_FILE = "coolm1-macos/Info.plist";
@@ -291,6 +299,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = coolm1;
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "coolm1-macOS/coolm1-macOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -299,6 +310,7 @@
 			baseConfigurationReference = 2D7A4A5054F035B2A4B1F1AF /* Pods-coolm1-macOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = "coolm1-macos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -311,6 +323,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = coolm1;
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "coolm1-macOS/coolm1-macOS-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
