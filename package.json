@@ -9,9 +9,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "nativewind": "^2.0.11",
     "react": "18.2.0",
     "react-native": "0.71.15",
-    "react-native-macos": "^0.71.36"
+    "react-native-chart-kit": "^6.12.0",
+    "react-native-macos": "^0.71.36",
+    "react-native-svg": "^14.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -28,6 +31,7 @@
     "metro-react-native-babel-preset": "0.73.10",
     "prettier": "^2.4.1",
     "react-test-renderer": "18.2.0",
+    "tailwindcss": "3.3.2",
     "typescript": "4.8.4"
   },
   "jest": {

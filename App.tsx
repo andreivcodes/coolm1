@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -5,114 +6,100 @@
  * @format
  */
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text} from 'react-native';
+import {LineChart} from 'react-native-chart-kit';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const chartConfig = {
+  backgroundGradientFrom: '#08130D',
+  backgroundGradientFromOpacity: 1,
+  backgroundGradientTo: '#1E2923',
+  backgroundGradientToOpacity: 0,
+  color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+  labelColor: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+  strokeWidth: 2, // optional, default 3
+  barPercentage: 0.5,
+};
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+const data = {
+  labels: [],
+  datasets: [
+    {
+      data: [30, 90, 67, 54, 10, 2],
+    },
+  ],
+};
 
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+function App(): JSX.Element {
+  const [chartParentWidth, setChartParentWidth] = useState(0);
+
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
+    <View
+      style={{padding: 16, flexDirection: 'column'}}
+      onLayout={({nativeEvent}) => {
+        setChartParentWidth(nativeEvent.layout.width);
+      }}>
+      <LineChart
+        data={data}
+        width={chartParentWidth - 50}
+        height={175}
+        chartConfig={chartConfig}
+        bezier
+        style={{
+          borderTopRightRadius: 7.5,
+          borderTopLeftRadius: 7.5,
+        }}
+      />
+      <Text style={{width: '100%', textAlign: 'center', padding: 5}}>
+        Average M1 CPU Temperature
       </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
+
+      <LineChart
+        data={data}
+        width={chartParentWidth - 50}
+        height={100}
+        chartConfig={chartConfig}
+        bezier
+        style={{
+          borderTopRightRadius: 7.5,
+          borderTopLeftRadius: 7.5,
+        }}
+      />
+      <Text style={{width: '100%', textAlign: 'center', padding: 5}}>
+        M1 CPU Temperature
+      </Text>
+
+      <LineChart
+        data={data}
+        width={chartParentWidth - 50}
+        height={100}
+        chartConfig={chartConfig}
+        bezier
+        style={{
+          borderTopRightRadius: 7.5,
+          borderTopLeftRadius: 7.5,
+        }}
+      />
+      <Text style={{width: '100%', textAlign: 'center', padding: 5}}>
+        M1 GPU Temperature
+      </Text>
+
+      <LineChart
+        data={data}
+        width={chartParentWidth - 50}
+        height={100}
+        chartConfig={chartConfig}
+        bezier
+        style={{
+          borderTopRightRadius: 7.5,
+          borderTopLeftRadius: 7.5,
+        }}
+      />
+      <Text style={{width: '100%', textAlign: 'center', padding: 5}}>
+        M1 ANE Temperature
       </Text>
     </View>
   );
 }
-
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
