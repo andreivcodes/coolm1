@@ -6063,6 +6063,11 @@ react-native-macos@^0.71.36:
     whatwg-fetch "^3.0.0"
     ws "^6.2.2"
 
+react-native-menubar-extra@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-menubar-extra/-/react-native-menubar-extra-0.3.1.tgz#4990268108ecdda37d248ad49fc0a9030e898b4f"
+  integrity sha512-fgYXB2idfaCffk43qB7r+KnjlUyEnlWweVTYt1lnHZKEf2ADA+RjYyLvFMUKDmK975j4QKTkNSE4AL1hRgO8fg==
+
 react-native-svg@^14.1.0:
   version "14.1.0"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-14.1.0.tgz#7903bddd3c71bf3a8a503918253c839e6edaa724"

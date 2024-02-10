@@ -10,16 +10,19 @@ import React, {useEffect, useRef, useState} from 'react';
 import {View, Text, NativeModules} from 'react-native';
 import {LineChart} from 'react-native-chart-kit';
 import {ChartConfig} from 'react-native-chart-kit/dist/HelperTypes';
+import {MenubarExtraView, MenuBarExtraItem} from 'react-native-menubar-extra';
 
 const chartConfig: ChartConfig = {
   backgroundGradientFrom: '#08130D',
-  backgroundGradientFromOpacity: 0.7,
+  backgroundGradientFromOpacity: 0.9,
   backgroundGradientTo: '#1E2923',
-  backgroundGradientToOpacity: 0,
+  backgroundGradientToOpacity: 0.4,
   color: () => 'rgba(26, 255, 200, 0.7)',
   labelColor: () => 'rgba(26, 255, 200, 0.7)',
-  strokeWidth: 2, // optional, default 3
-  barPercentage: 0.5,
+  strokeWidth: 2,
+  propsForDots: {
+    r: 3,
+  },
 };
 
 function calculateColor(temperature: number): string {
@@ -57,6 +60,7 @@ function App(): JSX.Element {
         const productNames = await TempSensors.getProductNames();
         const thermalValues = await TempSensors.getThermalValues();
 
+        console.log(productNames);
         let namesAndTemperatures = new Map();
 
         for (let i = 0; i < productNames.length; i++) {
@@ -98,34 +102,33 @@ function App(): JSX.Element {
   }, []);
 
   return (
-    <View
-      style={{padding: 16, flexDirection: 'column'}}
-      onLayout={({nativeEvent}) => {
-        setChartParentWidth(nativeEvent.layout.width);
-      }}>
-      {pmuTdie8Data.length > 0 && (
-        <LineChart
-          data={{labels: [''], datasets: [{data: pmuTdie8Data}]}}
-          width={chartParentWidth - 50}
-          height={175}
-          chartConfig={{
-            ...chartConfig,
-            color: () =>
-              calculateColor(pmuTdie8Data[pmuTdie8Data.length - 1] || 0),
-            labelColor: () =>
-              calculateColor(pmuTdie8Data[pmuTdie8Data.length - 1] || 0),
-          }}
-          bezier
-          style={{
-            borderRadius: 7.5,
-          }}
-        />
-      )}
-      <Text style={{width: '100%', textAlign: 'center', padding: 5}}>
-        PMU tdie8 Temperature
-      </Text>
-      {/* Add other LineCharts and Text components for different temperature types */}
-    </View>
+    <>
+      <View
+        style={{flexDirection: 'column'}}
+        onLayout={({nativeEvent}) => {
+          setChartParentWidth(nativeEvent.layout.width);
+        }}>
+        {pmuTdie8Data.length > 0 && (
+          <LineChart
+            data={{labels: [''], datasets: [{data: pmuTdie8Data}]}}
+            width={chartParentWidth}
+            height={175}
+            chartConfig={{
+              ...chartConfig,
+              color: () =>
+                calculateColor(pmuTdie8Data[pmuTdie8Data.length - 1] || 0),
+              labelColor: () =>
+                calculateColor(pmuTdie8Data[pmuTdie8Data.length - 1] || 0),
+            }}
+            bezier
+          />
+        )}
+        <Text style={{width: '100%', textAlign: 'center', padding: 5}}>
+          PMU tdie8 Temperature
+        </Text>
+        {/* Add other LineCharts and Text components for different temperature types */}
+      </View>
+    </>
   );
 }
 

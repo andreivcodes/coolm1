@@ -14,6 +14,7 @@
     "react-native": "0.71.15",
     "react-native-chart-kit": "^6.12.0",
     "react-native-macos": "^0.71.36",
+    "react-native-menubar-extra": "^0.3.1",
     "react-native-svg": "^14.1.0"
   },
   "devDependencies": {

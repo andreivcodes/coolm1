@@ -3,6 +3,35 @@
 #import <React/RCTBundleURLProvider.h>
 #import "TempSensors.h"
 
+
+@interface RightClickView : NSView
+@property (nonatomic, strong) NSTextField *label;
+@end
+
+@implementation RightClickView
+
+- (instancetype)initWithFrame:(NSRect)frameRect
+{
+  self = [super initWithFrame:frameRect];
+  if (self) {
+    self.label = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, frameRect.size.width, frameRect.size.height)];
+    [self.label setEditable:NO];
+    [self.label setBezeled:NO];
+    [self.label setDrawsBackground:NO];
+    [self.label setAlignment:NSTextAlignmentCenter];
+    [self.label setStringValue:@"Settings"];
+    [self addSubview:self.label];
+  }
+  return self;
+}
+
+@end
+
+@interface AppDelegate ()
+@property (nonatomic, strong) NSPopover *rightClickPopover;
+@property (atomic, assign) BOOL launchOnLogin;
+@end
+
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
@@ -12,44 +41,65 @@
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
   
-  NSApplication *application = [notification object];
   NSDictionary *launchOptions = [notification userInfo];
-  BOOL enableTM = NO;
- 
   
   if (!self.bridge) {
-      self.bridge = [self createBridgeWithDelegate:self launchOptions:launchOptions];
-    }
+    self.bridge = [self createBridgeWithDelegate:self launchOptions:launchOptions];
+  }
   
   // Create React Native rootView
-    RCTPlatformView *rootView = [self createRootViewWithBridge:self.bridge moduleName:self.moduleName initProps:self.initialProps];
-    NSViewController *viewController = [[NSViewController alloc] init];
-    viewController.view = rootView;
-    
-    _popover = [[NSPopover alloc] init];
-    _popover.contentSize = NSMakeSize(400, 600);
-    // Set popover content view as React Native rootView
-    _popover.contentViewController = viewController;
-    
-    // Expands rootView to Popover arrow.
-    if (@available(macOS 14.0, *)) {
-      _popover.hasFullSizeContent = YES;
-    }
-    _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    
-    [_statusItem.button setTitle:@"coolm1"];
-    [_statusItem.button setAction:@selector(toggleMenu:)];
+  RCTPlatformView *rootView = [self createRootViewWithBridge:self.bridge moduleName:self.moduleName initProps:self.initialProps];
+  NSViewController *viewController = [[NSViewController alloc] init];
+  viewController.view = rootView;
+  
+  _popover = [[NSPopover alloc] init];
+  _popover.contentSize = NSMakeSize(600, 400);
+  // Set popover content view as React Native rootView
+  _popover.contentViewController = viewController;
+  
+  _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+  
+  NSImage *image = [NSImage imageNamed:@"AppIcon"];
+  [image setTemplate:YES];
+  [image setSize:NSMakeSize(20, 20)];
+  [_statusItem.button setImage:image];
+  
+  [_statusItem.button setAction:@selector(toggleMenu:)];
+  [_statusItem.button sendActionOn:(NSEventMaskLeftMouseDown | NSEventMaskRightMouseDown)];
+  
+  self.rightClickPopover = [[NSPopover alloc] init];
   
 }
 
 - (void)toggleMenu:(NSMenuItem *)sender
 {
-  if (_popover.isShown) {
-    [_popover performClose:sender];
+  NSEvent *event = [NSApp currentEvent];
+  
+  if ([event type] == NSEventTypeRightMouseDown || [event type] == NSEventTypeRightMouseUp) {
+    NSMenu *contextMenu = [[NSMenu alloc] initWithTitle:@"ContextMenu"];
+    
+    [contextMenu addItemWithTitle:@"Quit" action:@selector(quitApp:) keyEquivalent:@""];
+    
+    // Display context menu at the mouse location
+    [contextMenu popUpMenuPositioningItem:nil atLocation:[NSEvent mouseLocation] inView:nil];
   } else {
-    [_popover showRelativeToRect:_statusItem.button.bounds ofView:_statusItem.button preferredEdge:NSRectEdgeMinY];
-    [_popover.contentViewController.view.window becomeKeyWindow];
+    
+    if (self.rightClickPopover.isShown) {
+      [self.rightClickPopover performClose:sender];
+    }
+    
+    if (_popover.isShown) {
+      [_popover performClose:sender];
+    } else {
+      [_popover showRelativeToRect:_statusItem.button.bounds ofView:_statusItem.button preferredEdge:NSRectEdgeMinY];
+      [_popover.contentViewController.view.window becomeKeyWindow];
+    }
   }
+}
+
+- (void)quitApp:(id)sender
+{
+  [NSApp terminate:nil];
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
